@@ -1,3 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="assets/logo.png" type="image/x-icon"/>
+    <title>Notes</title>
+</head>
+
 <?php
 
 date_default_timezone_set('America/Caracas');
@@ -69,20 +81,6 @@ if (isset($_GET['dir'])) {
 
 ?>
 
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    
-    <link rel="stylesheet" href="styles.css">
-
-    <title>Notes</title>
-</head>
-
 <body>
     <div class="container-directorio">
         <div class="image-2">
@@ -126,9 +124,9 @@ if (isset($_GET['dir'])) {
                         $file = "file\\" . $dir . '\\' . $valor;
 
                         if (filesize($file) > 0) {
-                            $con = file_get_contents($file, FILE_USE_INCLUDE_PATH);
+                            $contents = file_get_contents($file, FILE_USE_INCLUDE_PATH);
                         }else {
-                            $con = 'vacio';
+                            $contents = 'vacio';
                         }
 
             ?>
@@ -139,7 +137,7 @@ if (isset($_GET['dir'])) {
                         <h3>Propiedades:</h3>
                         <h6 class="card-subtitle mb-2 text-muted">Nombre: <?php echo rtrim($valor, '(.html)') ?></h5>
                         <h6 class="card-subtitle mb-2 text-muted">Tamaño: <?php echo filesize($file) ?> bytes</h6>
-                        <h6 class="card-subtitle mb-2 text-muted"> Nota: <i><?php echo substr($con, 0, 20); ?>...</i></h6>
+                        <h6 class="card-subtitle mb-2 text-muted"> Nota: <i><?php echo substr($contents, 0, 20); ?>...</i></h6>
                         <h6 class="card-subtitle mb-2 text-muted"> Fecha de creacion: <?php echo date("d/m/y", filectime($file));?> </h6>
                         <h6 class="card-subtitle mb-2 text-muted"> Ultima modificacion: <?php echo date("d/m/y H:i:s", filemtime($file));?> </h6>
                         <a href="archivo.php?note=<?php echo $valor ?>&dir=<?php echo $dir ?>" class="card-link">Ver </a>

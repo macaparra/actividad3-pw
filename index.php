@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
-
+    <link rel="icon" href="assets/logo.png" type="image/x-icon"/>
     <title>Notes</title>
 </head>
 
@@ -68,11 +68,11 @@
 <div class="row row-cols-4 w-75 mx-auto">
     <?php
     try {
-        $dir = 'file';
-        $dirs  = scandir($dir);
+        $directorio = 'file';
+        $directorios  = scandir($directorio);
 
-        foreach ($dirs as $direc) {
-            if ('.' !== $direc && '..' !== $direc) {
+        foreach ($directorios as $directorioec) {
+            if ('.' !== $directorioec && '..' !== $directorioec) {
 
     ?>
 
@@ -80,9 +80,9 @@
         <div class="card m-4" style="width: auto; height:auto">
             <div class="card-body">
             <img id="img-folder-1" src="assets/folder.png">
-                <h5 class="card-title"> <b><?php echo  $direc ?>  </b> </h5>
-                <a href="directorio.php?dir=<?php echo $direc ?>" class="card-link">Abrir</a>
-                <a href="eliminar/eliminar-directorio.php?dir=<?php echo $direc ?>" class="card-link text-danger">Eliminar</a>
+                <h5 class="card-title"> <b><?php echo  $directorioec ?>  </b> </h5>
+                <a href="directorio.php?dir=<?php echo $directorioec ?>" class="card-link">Abrir</a>
+                <a href="eliminar/eliminar-directorio.php?dir=<?php echo $directorioec ?>" class="card-link text-danger">Eliminar</a>
             </div>
         </div>
     </div>
