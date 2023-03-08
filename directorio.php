@@ -126,9 +126,9 @@ if (isset($_GET['dir'])) {
                         $file = "file\\" . $dir . '\\' . $valor;
 
                         if (filesize($file) > 0) {
-                            $contents = file_get_contents($file, FILE_USE_INCLUDE_PATH);
+                            $con = file_get_contents($file, FILE_USE_INCLUDE_PATH);
                         }else {
-                            $contents = 'No hay contenido aun';
+                            $con = 'vacio';
                         }
 
             ?>
@@ -139,7 +139,7 @@ if (isset($_GET['dir'])) {
                         <h3>Propiedades:</h3>
                         <h6 class="card-subtitle mb-2 text-muted">Nombre: <?php echo rtrim($valor, '(.html)') ?></h5>
                         <h6 class="card-subtitle mb-2 text-muted">Tamaño: <?php echo filesize($file) ?> bytes</h6>
-                        <h6 class="card-subtitle mb-2 text-muted"> Nota: <i><?php echo substr($contents, 0, 20); ?>...</i></h6>
+                        <h6 class="card-subtitle mb-2 text-muted"> Nota: <i><?php echo substr($con, 0, 20); ?>...</i></h6>
                         <h6 class="card-subtitle mb-2 text-muted"> Fecha de creacion: <?php echo date("d/m/y", filectime($file));?> </h6>
                         <h6 class="card-subtitle mb-2 text-muted"> Ultima modificacion: <?php echo date("d/m/y H:i:s", filemtime($file));?> </h6>
                         <a href="archivo.php?note=<?php echo $valor ?>&dir=<?php echo $dir ?>" class="card-link">Ver </a>

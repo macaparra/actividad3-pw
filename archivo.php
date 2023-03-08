@@ -40,21 +40,21 @@
     try {
 
         $file = "file\\" . $dir . '\\' . $note;
-        $size = filesize($file);
-        if ($size > 0) {
-            $contents = file_get_contents($file, FILE_USE_INCLUDE_PATH);
+        $tam = filesize($file);
+        if ($tam > 0) {
+            $con = file_get_contents($file, FILE_USE_INCLUDE_PATH);
         } else {
-            $contents = '';
+            $con = '';
         }
     } catch (Exception $e) {
         echo 'Excepción capturada: ',  $e->getMessage(), "\n\n";
-        $contents = "";
+        $con = "";
     }
     ?>
 
     <div class="area">
         <form action="directorio.php?dir=<?php echo $dir ?>&note=<?php echo $note ?>" method="post">
-            <textarea  name="valor-nota" style="height: 500px;" class="valor-nota w-75 d-block mx-auto" id="" cols="30" rows="10"><?php echo $contents; ?></textarea>
+            <textarea  name="valor-nota" style="height: 500px;" class="valor-nota w-75 d-block mx-auto" id="" cols="30" rows="10"><?php echo $con; ?></textarea>
             
             <button type="submit" class="btn-2">Guardar</button>
         </form>

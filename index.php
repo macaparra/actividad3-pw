@@ -44,13 +44,13 @@
     if (isset($_POST['crear']) &&  isset($_POST['nombre'])) {
 
         $nombre = $_POST['nombre'];
-        $dirname = "file/$nombre";
+        $nombredir = "file/$nombre";
 
     try {
 
-        if (!(is_dir($dirname))) {
+        if (!(is_dir($nombredir))) {
 
-            mkdir($dirname);
+            mkdir($nombredir);
             $error = 'Directorio creado';
         } else {
             $error = '';
@@ -91,7 +91,7 @@
             }
         }
     } catch (Exception $e) {
-        echo 'Se ha encontrado un error: ',  $e->getMessage(), "\n\n";
+        echo 'error: ',  $e->getMessage(), "\n\n";
     }
     ?>
     </div>
