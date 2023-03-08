@@ -65,7 +65,7 @@
 
 ?>
 
-<div class="row row-cols-4 w-75 mx-auto">
+<div class="row">
     <?php
     try {
         $directorio = 'file';
@@ -77,7 +77,7 @@
     ?>
 
     <div class="col">
-        <div class="card m-4" style="width: auto; height:auto">
+        <div class="card" style="width: 18rem;">
             <div class="card-body">
             <img id="img-folder-1" src="assets/folder.png">
                 <h5 class="card-title"> <b><?php echo  $directorioec ?>  </b> </h5>
