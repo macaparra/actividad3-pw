@@ -1,35 +1,3 @@
-<?php
-
-$error = '';
-
-
-if (isset($_POST['crear']) &&  isset($_POST['nombre'])) {
-
-
-    $nombre = $_POST['nombre'];
-    $dirname = "file/$nombre";
-
-    try {
-
-        if (!(is_dir($dirname))) {
-
-            mkdir($dirname);
-            $error = 'Directorio creado';
-        } else {
-            $error = '';
-        }
-    } catch (Exception $e) {
-        echo 'Error: ',  $e->getMessage(), "\n\n";
-    }
-}
-
-
-
-unset($_POST['crear']);
-unset($_POST['nombre']);
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -68,36 +36,56 @@ unset($_POST['nombre']);
 
 </div>
 
-<div class="row row-cols-4 w-75 mx-auto">
+<?php
+
+    $error = '';
 
 
+    if (isset($_POST['crear']) &&  isset($_POST['nombre'])) {
 
+        $nombre = $_POST['nombre'];
+        $dirname = "file/$nombre";
 
-    <?php
     try {
 
+        if (!(is_dir($dirname))) {
+
+            mkdir($dirname);
+            $error = 'Directorio creado';
+        } else {
+            $error = '';
+        }
+    }   catch (Exception $e) {
+         echo 'Error: ',  $e->getMessage(), "\n\n";
+        }
+    }
+
+    unset($_POST['crear']);
+    unset($_POST['nombre']);
+
+?>
+
+<div class="row row-cols-4 w-75 mx-auto">
+    <?php
+    try {
         $dir = 'file';
         $dirs  = scandir($dir);
-
-
 
         foreach ($dirs as $direc) {
             if ('.' !== $direc && '..' !== $direc) {
 
     ?>
 
-
-
-                <div class="col">
-                    <div class="card m-4" style="width: auto; height:auto">
-                        <div class="card-body">
-                        <img id="img-folder-1" src="assets/folder.png">
-                            <h5 class="card-title"> <b><?php echo  $direc ?>  </b> </h5>
-                            <a href="directorio.php?dir=<?php echo $direc ?>" class="card-link">Abrir</a>
-                            <a href="eliminar/eliminar-directorio.php?dir=<?php echo $direc ?>" class="card-link text-danger">Eliminar</a>
-                        </div>
-                    </div>
-                </div>
+    <div class="col">
+        <div class="card m-4" style="width: auto; height:auto">
+            <div class="card-body">
+            <img id="img-folder-1" src="assets/folder.png">
+                <h5 class="card-title"> <b><?php echo  $direc ?>  </b> </h5>
+                <a href="directorio.php?dir=<?php echo $direc ?>" class="card-link">Abrir</a>
+                <a href="eliminar/eliminar-directorio.php?dir=<?php echo $direc ?>" class="card-link text-danger">Eliminar</a>
+            </div>
+        </div>
+    </div>
 
     <?php
             }

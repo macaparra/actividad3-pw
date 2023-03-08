@@ -1,7 +1,5 @@
 <?php
 
-
-# code...
 if (isset($_GET['dir'])) {
 
     $dir = $_GET['dir'];

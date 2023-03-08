@@ -1,6 +1,5 @@
 <?php
 
-
 if(isset($_GET['note']) && isset($_GET['dir'])){
 
     $dir = $_GET['dir'];
@@ -20,8 +19,6 @@ if(isset($_GET['note']) && isset($_GET['dir'])){
     }catch (Exception $e){
         echo 'Excepción capturada: ',  $e->getMessage(), "\n\n";
     }
-
-
 
 } else{
     header('Location: ../directorio.php?dir=' . $dir);

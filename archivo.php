@@ -1,15 +1,3 @@
-<?php
-
-if (isset($_GET['dir']) && isset($_GET['note'])) {
-    $dir = $_GET['dir'];
-    $note = $_GET['note'];
-} else {
-    header("Location: index.php");
-}
-
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,6 +13,17 @@ if (isset($_GET['dir']) && isset($_GET['note'])) {
 
     <title>Notes</title>
 </head>
+
+<?php
+
+    if (isset($_GET['dir']) && isset($_GET['note'])) {
+        $dir = $_GET['dir'];
+        $note = $_GET['note'];
+    } else {
+        header("Location: index.php");
+    }
+
+?>
 
 <body>
     <div class="container-directorio">
@@ -61,8 +60,5 @@ if (isset($_GET['dir']) && isset($_GET['note'])) {
         </form>
     </div>
 </body>
-
-
-
 
 </html>
