@@ -54,18 +54,15 @@ if (isset($_GET['dir'])) {
             try {
 
                 if (file_exists($direct)) {
-                    // $error = "Archivo ya existe&#10071&#10071&#10071";
                     unlink($direct);
                 }
-                // else {
                     $archivo = fopen($direct, 'a');
                     fputs($archivo, $content);
                     fclose($archivo);
-
                     header('Location: directorio.php?dir=' . $dir);
-                // }
+                
             } catch (Exception $e) {
-                echo 'Excepción capturada: ',  $e->getMessage(), "\n\n";
+                echo '',  $e->getMessage(), "\n\n";
             }
         }
     }

@@ -46,7 +46,7 @@
             $con = '';
         }
     } catch (Exception $e) {
-        echo 'Excepción capturada: ',  $e->getMessage(), "\n\n";
+        echo '',  $e->getMessage(), "\n\n";
         $con = "";
     }
     ?>
