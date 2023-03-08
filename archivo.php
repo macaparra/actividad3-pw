@@ -38,7 +38,7 @@
 
     try {
 
-        $file = "file\\" . $dir . '\\' . $note;
+        $file = "file/" . $dir . '/' . $note;
         $tam = filesize($file);
         if ($tam > 0) {
             $con = file_get_contents($file, FILE_USE_INCLUDE_PATH);

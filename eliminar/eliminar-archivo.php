@@ -6,7 +6,7 @@ if(isset($_GET['note']) && isset($_GET['dir'])){
     $note = $_GET['note'];
 
     try{
-        $file = "..\\file\\" . $dir . '\\' . $note;
+        $file = "../file/" . $dir . '/' . $note;
 
         if(unlink($file)){
             header('Location: ../directorio.php?dir=' . $dir);
@@ -17,7 +17,7 @@ if(isset($_GET['note']) && isset($_GET['dir'])){
         }
 
     }catch (Exception $e){
-        echo 'Excepción capturada: ',  $e->getMessage(), "\n\n";
+        echo 'Se ha realizado',  $e->getMessage(), "\n\n";
     }
 
 } else{

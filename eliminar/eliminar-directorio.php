@@ -4,13 +4,13 @@ if (isset($_GET['dir'])) {
     $dir = $_GET['dir'];
 
     try {
-        $file = "..\\file\\" . $dir;
+        $file = "../file/" . $dir;
         $directorio = "file/" . $dir;;
         $js_code = '';
         $files = scandir($file); 
         foreach ($files as $archivo) {
             if ('.' !== $archivo && '..' !== $archivo) {
-                $fileB = "..\\file\\" . $dir . '\\' . $archivo;
+                $fileB = "../file/" . $dir . '/' . $archivo;
                 var_dump($archivo);
 
                 if (is_file($fileB)){
@@ -26,7 +26,7 @@ if (isset($_GET['dir'])) {
         header('Location: ../index.php');
 
     } catch (Exception $e) {
-        echo 'Excepción capturada: ',  $e->getMessage(), "\n\n";
+        echo 'Se ha relizado ',  $e->getMessage(), "\n\n";
     }
 } else {
     header('Location: ../index.php');
